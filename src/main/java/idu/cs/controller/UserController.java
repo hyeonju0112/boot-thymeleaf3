@@ -20,6 +20,9 @@ import idu.cs.exception.ResourceNotFoundException;
 import idu.cs.repository.UserRepository;
 
 @Controller
+// @Component, @Service, @Repository 
+//Spring Framework에게 이 클래스로부터 작성된 객체는 Controller 역할을 함을 알려줌
+//Spring 이 이 클래스로부터 Bean 객체를 생성해서 등록할 수 있음
 public class UserController {
 	@Autowired UserRepository userRepo; // Dependency Injection
 	
@@ -45,6 +48,12 @@ public class UserController {
 		}
 		//userRepo.save(user);
 		session.setAttribute("user", sessionUser);
+		return "redirect:/";
+	}
+	@GetMapping("/logout")
+	public String logoutUser(HttpSession session) {
+		session.removeAttribute("user");
+		//session.invalidate(); -> 세션에 담긴 정보 모두 사라짐
 		return "redirect:/";
 	}
 	@GetMapping("/user-register-form")

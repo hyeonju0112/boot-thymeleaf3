@@ -1,5 +1,6 @@
 package idu.cs.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,13 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_table")
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
-	// database에서 sequence number, primary key 역할
+	// database에서 sequence number, auto increment => primary key 역할
 	
+	@Column(nullable=false, length=20, unique=true)	
 	private String userid;
 	private String userpw;
 	private String name;

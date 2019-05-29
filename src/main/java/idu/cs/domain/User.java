@@ -14,9 +14,23 @@ public class User {
 	private Long id; 
 	// database에서 sequence number, primary key 역할
 	
+	private String userid;
+	private String userpw;
 	private String name;
 	private String company;
 	
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getUserpw() {
+		return userpw;
+	}
+	public void setUserpw(String userpw) {
+		this.userpw = userpw;
+	}
 	public Long getId() {
 		return id;
 	}
